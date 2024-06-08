@@ -158,7 +158,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 eval "$(fzf --zsh)"
+
 eval $(thefuck --alias)
+
 eval "$(zoxide init --cmd cd zsh)"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
