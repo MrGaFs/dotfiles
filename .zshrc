@@ -19,6 +19,7 @@ fi
 
 ## Shell roundy 
 zinit ice depth=1;zinit light nullxception/roundy
+ROUNDY_DIR_MODE="full"
 
 ## Syntax highlighting
 zinit light zsh-users/zsh-syntax-highlighting
