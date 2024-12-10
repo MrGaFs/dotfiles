@@ -1,4 +1,5 @@
 # set zinit directory variable 
+source <(fzf --zsh)
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not downloaded yet 
@@ -38,13 +39,12 @@ autoload -Uz add-zsh-hook
 zinit cdreplay -q
 
 ## fzf tab
-zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 
 zinit snippet OMZP::command-not-found
 
 
-zstyle ':completion:*:*:*:*:*' menu select
+# zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
@@ -158,11 +158,14 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-eval "$(fzf --zsh)"
 
 eval $(thefuck --alias)
 
 eval "$(zoxide init --cmd cd zsh)"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+zinit light Aloxaf/fzf-tab
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

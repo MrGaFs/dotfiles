@@ -15,6 +15,9 @@ return {
 
     -- enable mason and configure icons
     mason.setup({
+      ensure_installed = {
+        "js-debug-adapter",
+      },
       ui = {
         icons = {
           package_installed = "✓",

@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "char"
+        "char",
+        "dapui"
     ]
 }
