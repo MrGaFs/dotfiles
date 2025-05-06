@@ -4,6 +4,9 @@ return {
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     event = "VeryLazy",
     config = function()
+      vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpointCondition", { text = "🔵", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapLogPoint", { text = "📝", texthl = "", linehl = "", numhl = "" })
       local dap = require("dap")
       local dapui = require("dapui")
       local keymap = require("vim.keymap")
@@ -21,6 +24,7 @@ return {
       keymap.set("n", "<leader>dr", "<cmd> DapContinue <CR>", { noremap = true, desc = "Run or Continue debugger" })
     end,
   },
+
   {
     "mfussenegger/nvim-dap",
     config = function()
