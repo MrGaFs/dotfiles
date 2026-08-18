@@ -19,3 +19,11 @@
 .config/thefuck/__pycache__/
 .DS_Store
 **/.DS_Store
+
+# secrets that live under ~/.config but must never be committed (repo is public)
+.config/gh/
+.config/stripe/
+.config/medusa/
+.config/lxc/
+.config/**/*.key
+.config/**/hosts.yml
