@@ -21,6 +21,11 @@ fi
 ## Shell roundy 
 zinit ice depth=1;zinit light nullxception/roundy
 ROUNDY_DIR_MODE="full"
+ROUNDY_PROMPT_HAS_GAP=false   # remove the blank line above the prompt
+# Use Nerd Font apple glyph (U+F179) instead of roundy's default U+F8FF,
+# which is an Apple-only glyph missing from Nerd Fonts (renders as tofu).
+ROUNDY_USER_CONTENT_NORMAL=$' \uf179 %n '
+ROUNDY_USER_CONTENT_ROOT=$' \uf179 %n '
 
 ## Syntax highlighting
 zinit light zsh-users/zsh-syntax-highlighting
@@ -50,7 +55,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 compinit -d ~/.config/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)
@@ -161,7 +165,6 @@ eval "$(pyenv init -)"
 
 eval $(thefuck --alias)
 
-eval "$(zoxide init --cmd cd zsh)"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -169,3 +172,39 @@ zinit light Aloxaf/fzf-tab
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+fastfetch -l small --structure OS:Kernel:CPU:GPU:LocalIP
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script 2>/dev/null)
+
+alias vi='nvim'
+
+# Add npm global packages to PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
+eval "$(zoxide init zsh)"
+
+
+ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
+# Added by Antigravity
+export PATH="/Users/mrgafs/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/mrgafs/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Antigravity
+export PATH="/Users/mrgafs/.antigravity/antigravity/bin:$PATH"
+
+# Default editor
+export EDITOR=nvim
+export VISUAL=nvim

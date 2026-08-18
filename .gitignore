@@ -1,0 +1,21 @@
+# secrets / tokens — backed up separately in rebuild-backup/secrets
+.config/gh/
+.config/lxc/
+.config/stripe/
+.config/medusa/
+.config/zsh/claude-code.sh
+.config/zsh/zhistory
+# caches / bulk
+.config/zsh/zcompdump*
+.config/yarn/global/node_modules/
+.config/yarn/global/.yarn-integrity
+.config/raycast/extensions/
+.config/nvim.bak/
+.config/htop/
+.config/psysh/
+.config/composer/
+.config/cagent/
+.config/crewai/
+.config/thefuck/__pycache__/
+.DS_Store
+**/.DS_Store
