@@ -98,9 +98,6 @@ setopt hist_find_no_dups
 
 ##### imports
 
-if [ -d "$HOME/.nvm/versions/node/v18.16.0/lib" ] ;
-  then PATH="$HOME/.nvm/versions/node/v18.16.0/lib:$PATH"
-fi
 
 ### CHANGE TITLE OF TERMINALS
 
@@ -170,7 +167,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 zinit light Aloxaf/fzf-tab
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 fastfetch -l small --structure OS:Kernel:CPU:GPU:LocalIP
 
@@ -186,12 +182,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 eval "$(zoxide init zsh)"
 
 
-ff() {
-  aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
-}
 
-# Added by Antigravity
-export PATH="/Users/mrgafs/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
@@ -202,8 +193,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Added by Antigravity
-export PATH="/Users/mrgafs/.antigravity/antigravity/bin:$PATH"
 
 # Default editor
 export EDITOR=nvim
